@@ -43,7 +43,7 @@
     - name: copy gunicorn config
       template: 
         src: files/gunicorn.j2
-        dest: /etc/init/gunicorn.conf
+        dest: /etc/systemd/system/gunicorn.service
       notify:
       - restart gunicorn
 

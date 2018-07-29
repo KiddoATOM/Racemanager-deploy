@@ -34,12 +34,13 @@
         name: "{{ db_user }}"
         password: "{{ db_password }}"
         priv: ALL
+        encrypted: yes
 
     - name: remove default nginx site
       file: 
         path: /etc/nginx/sites-enabled/default
         state: absent
 
-- include: deploy.yml
+- import_playbook: deploy.yml
 
 # vim:ft=ansible:

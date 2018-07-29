@@ -1,14 +1,14 @@
-description "Gunicorn application server handling {{ project_name }}"
+[Unit]
+Description="Gunicorn application server handling {{ project_name }}"
+After=network.target
 
-start on runlevel [2345]
-stop on runlevel [!2345]
+[Service]
+User=kiddo
+Group=www-data
+WorkingDirectory={{ install_root }}/{{ project_name }}
+ExecStart=/usr/bin/gunicorn --workers 3 --bind 127.0.0.1:8000 {{ wsgi_module }}:application
 
-respawn
-setuid www-data
-setgid www-data
-chdir {{ install_root }}/{{ project_name }}
+[Install]
+WantedBy=multi-user.target
 
-env PYTHONPATH={{ install_root }}/{{ project_name }}:{{ pythonpath }}
-
-exec /usr/bin/gunicorn --workers 3 --bind 127.0.0.1:8000 {{ wsgi_module }}:application
 

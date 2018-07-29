@@ -1,2 +1,2 @@
 [racemanager-server]
-127.0.0.1 ansible_user=santiago ansible_password=santi367 ansible_become_pass=santi367
+127.0.0.1 ansible_user=kiddo ansible_password=ghoul84 ansible_become_pass=ghoul84
