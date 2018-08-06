@@ -11,7 +11,7 @@
         repo: "{{ project_repo }}"
         dest: "{{ install_root }}/{{ project_name }}" 
         accept_hostkey: yes
-        version: develop
+        version: master
       notify:
       - restart gunicorn
 
